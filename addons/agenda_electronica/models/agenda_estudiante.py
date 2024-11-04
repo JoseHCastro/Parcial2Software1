@@ -8,10 +8,12 @@ class AgendaEstudiante(models.Model):
     _description = "Estudiante"
 
     name = fields.Char(string="Nombre", required=True)
+    apellido = fields.Char(string="Apellido", required=True)  # Agregar apellido
+    edad = fields.Integer(string="Edad", required=True)  # Agregar edad
+    grado = fields.Char(string="Grado", required=True)  # Agregar grado
     email = fields.Char(string="Email", required=True)
-    user_id = fields.Many2one(
-        "res.users", string="Usuario", default=lambda self: self.env.user
-    )
+    user_id = fields.Many2one("res.users", string="Usuario", default=lambda self: self.env.user)
+
     
     def submit_agenda_estudiante(self):
         # Aquí puedes realizar validaciones adicionales si es necesario
