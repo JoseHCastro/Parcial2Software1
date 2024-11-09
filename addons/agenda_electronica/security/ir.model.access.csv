@@ -5,4 +5,5 @@ access_school_student,access_school_student,model_school_student,base.group_user
 access_school_classroom,access.school.classroom,model_school_classroom,base.group_user,1,1,1,1
 access_school_subject,access.school.subject,model_school_subject,base.group_user,1,1,1,1
 access_school_schedule,access_school_schedule,model_school_schedule,base.group_user,1,1,1,1
+access_school_schedule,access_school_announcement_type,model_school_announcement_type,base.group_user,1,1,1,1
 

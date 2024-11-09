@@ -15,6 +15,7 @@
         'views/classroom_views.xml',
         'views/subject_views.xml',
         'views/schedule_views.xml',
+        'views/announcement_type_views.xml',
         'views/menu_views.xml',
     ],
     'installable': True,
