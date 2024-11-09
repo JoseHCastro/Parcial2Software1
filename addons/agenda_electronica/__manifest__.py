@@ -8,8 +8,11 @@
     'description': 'Módulo de agenda electrónica con gestión de estudiantes',
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/agenda_estudiante_views.xml',
+        'security/ir.model.access.csv',        
+        'views/professor_views.xml',
+        'views/parent_views.xml',
+        'views/student_views.xml',
+        'views/menu_views.xml',
     ],
     'installable': True,
     'application': True,

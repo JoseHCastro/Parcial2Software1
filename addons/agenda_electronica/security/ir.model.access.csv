@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_agenda_estudiante,access_agenda_estudiante,model_agenda_estudiante,base.group_user,1,1,1,1
+access_school_professor,access_school_professor,model_school_professor,base.group_user,1,1,1,1
+access_school_parent,access_school_parent,model_school_parent,base.group_user,1,1,1,1
+access_school_student,access_school_student,model_school_student,base.group_user,1,1,1,1
