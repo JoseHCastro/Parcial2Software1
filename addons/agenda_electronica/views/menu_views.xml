@@ -3,4 +3,7 @@
     <menuitem id="menu_school_professor" name="Professors" parent="menu_school_root" action="action_professor"/>
     <menuitem id="menu_school_parent" name="Parents" parent="menu_school_root" action="action_parent"/>
     <menuitem id="menu_school_student" name="Students" parent="menu_school_root" action="action_student"/>
+    <menuitem id="menu_school_classroom" name="Classrooms" parent="menu_school_root" action="action_classroom"/>
+    <menuitem id="menu_school_subject" name="Subjects" parent="menu_school_root" action="action_subject"/>
+    <menuitem id="menu_school_schedule" name="Schedules" parent="menu_school_root" action="action_schedule"/>    
 </odoo>

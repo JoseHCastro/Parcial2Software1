@@ -8,6 +8,7 @@
                 <field name="name"/>
                 <field name="email"/>
                 <field name="parent_id"/>
+                <field name="classroom_id" string="Classroom" widget="many2one" options="{'no_create': True}"/>
             </list>
         </field>
     </record>
@@ -22,6 +23,7 @@
                     <field name="email"/>
                     <field name="password"/>
                     <field name="parent_id"/>
+                    <field name="classroom_id"/>
                 </group>
                 <button name="create_user_for_student" type="object" string="Create User"/>
             </form>

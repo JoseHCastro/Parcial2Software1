@@ -9,6 +9,9 @@ class Student(models.Model):
     password = fields.Char('Password')
     parent_id = fields.Many2one('school.parent', string='Parent')
     user_id = fields.Many2one('res.users', string='User', ondelete='cascade')
+    
+    # Relación con Classroom
+    classroom_id = fields.Many2one('school.classroom', string='Classroom', domain="[('id', '!=', False)]")
 
     def create_user_for_student(self):
         password = self.password or '12345678'

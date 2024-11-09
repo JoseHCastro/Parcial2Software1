@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+
+        <!-- Vista Formulario para crear y editar Schedule -->
+        <record id="view_school_schedule_form" model="ir.ui.view">
+            <field name="name">school.schedule.form</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Schedule">
+                    <sheet>
+                        <group>
+                            <field name="subject_id" required="1"/>
+                            <field name="classroom_id" required="1"/>
+                            <field name="professor_id" required="1"/>
+                        </group>
+
+                        <group>
+                            <!-- Usamos el widget float_time para seleccionar hora en formato decimal -->
+                            <field name="schedule_init" widget="float_time" required="1"/>
+                            <field name="schedule_end" widget="float_time" required="1"/>
+                        </group>
+
+                        <!-- Campo Display Name (solo visualización) -->
+                        <group>
+                            <field name="display_name" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol (lista) para ver los horarios -->
+        <record id="view_school_schedule_tree" model="ir.ui.view">
+            <field name="name">school.schedule.list</field>
+            <field name="model">school.schedule</field>
+            <field name="arch" type="xml">
+                <list string="Schedules">
+                    <field name="subject_id"/>
+                    <field name="classroom_id"/>
+                    <field name="professor_id"/>
+                    <field name="schedule_init"/>
+                    <field name="schedule_end"/>
+                    <field name="display_name"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Acción para abrir la vista de horarios -->
+        <record id="action_schedule" model="ir.actions.act_window">
+            <field name="name">Schedules</field>
+            <field name="res_model">school.schedule</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_school_schedule_tree"/>
+        </record>
+
+    </data>
+</odoo>

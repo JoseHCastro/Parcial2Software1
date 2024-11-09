@@ -2,3 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_school_professor,access_school_professor,model_school_professor,base.group_user,1,1,1,1
 access_school_parent,access_school_parent,model_school_parent,base.group_user,1,1,1,1
 access_school_student,access_school_student,model_school_student,base.group_user,1,1,1,1
+access_school_classroom,access.school.classroom,model_school_classroom,base.group_user,1,1,1,1
+access_school_subject,access.school.subject,model_school_subject,base.group_user,1,1,1,1
+access_school_schedule,access_school_schedule,model_school_schedule,base.group_user,1,1,1,1
+
