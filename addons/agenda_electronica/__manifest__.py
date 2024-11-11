@@ -9,6 +9,7 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',        
+        'views/admin_views.xml',
         'views/professor_views.xml',
         'views/parent_views.xml',
         'views/student_views.xml',
