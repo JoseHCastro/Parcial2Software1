@@ -18,6 +18,7 @@
         'views/schedule_views.xml',
         'views/announcement_type_views.xml',
         'views/menu_views.xml',
+        'views/announcement.xml',
     ],
     'installable': True,
     'application': True,

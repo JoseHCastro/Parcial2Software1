@@ -4,7 +4,7 @@ import json
 
 class ClassroomController(http.Controller):
 
-    @http.route('/api/classrooms', type='http', auth='public', methods=['GET'], csrf=False)
+    @http.route('/api/classrooms', type='http', auth='none', methods=['GET'], csrf=False)
     def get_classrooms(self, **kwargs):
         # Obtenemos todos los registros de Classroom
         classrooms = request.env['school.classroom'].sudo().search([])

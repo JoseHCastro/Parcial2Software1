@@ -7,3 +7,5 @@ access_school_classroom,access.school.classroom,model_school_classroom,base.grou
 access_school_subject,access.school.subject,model_school_subject,base.group_user,1,1,1,1
 access_schedule,schedule_access_rights,model_school_schedule,base.group_user,1,1,1,1
 access_school_schedule,access_school_announcement_type,model_school_announcement_type,base.group_user,1,1,1,1
+access_school_announcement,access_school_announcement,model_school_announcement,base.group_user,1,1,1,1
+access_announcement,model_school_announcement_access_rights,model_school_announcement,base.group_user,1,1,1,1
