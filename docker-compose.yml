@@ -2,31 +2,14 @@ version: '3'
 services:
   web:
     image: odoo:18.0
-    depends_on:
-      - db
     ports:
       - "8069:8069"
     environment:
-      - DB_HOST=db
+      - DB_HOST=dpg-csp6ds3v2p9s73bbptmg-a
       - DB_PORT=5432
       - DB_USER=odoo
-      - DB_PASSWORD=odoo
+      - DB_PASSWORD=B3cwhuBhVr2TDQUJY6DBQH6sJ2OTcTdU
+      - POSTGRES_DB=odoo_35g4
     volumes:
-      - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: odoo
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
-    volumes:
-      - odoo-db-data:/var/lib/postgresql/data
-    ports:
-      - "5420:5432"
-
-volumes:
-  odoo-web-data:
-  odoo-db-data:
