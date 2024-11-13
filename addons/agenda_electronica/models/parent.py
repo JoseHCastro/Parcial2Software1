@@ -18,4 +18,19 @@ class Parent(models.Model):
             'password': password,  # Cambiar luego o pedir al usuario que restablezca
             'parent_id': self.id
         }
-        self.user_id = self.env['res.users'].create(user_vals)
+        
+        
+        # Crear el nuevo usuario
+        new_user = self.env['res.users'].create(user_vals)
+        
+        # Relacionar el usuario con el estudiante
+        self.user_id = new_user
+
+        # Asignar los grupos al nuevo usuario
+        group_ids = [1, 2, 3, 4, 7, 8, 9]  # IDs de los grupos que deseas asignar
+        groups = self.env['res.groups'].browse(group_ids)  # Obtener los grupos por sus IDs
+
+        # Usar la relación intermedia para asignar los grupos al usuario
+        new_user.write({
+            'groups_id': [(4, group.id) for group in groups]  # 4 es el comando para agregar a los grupos
+        })

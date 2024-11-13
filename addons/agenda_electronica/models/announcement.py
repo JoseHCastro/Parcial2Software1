@@ -1,31 +1,46 @@
+# announcement.py
+
 from odoo import models, fields, api
+from datetime import datetime
 
 class Announcement(models.Model):
-    _name = 'school.announcement'
-    _description = 'Announcement'
+    _name = "school.announcement"
+    _description = "Announcement"
 
-    title = fields.Char(string='Title', required=True)
-    message = fields.Text(string='Message', required=True)
-    audio_url = fields.Char(string='Audio URL')
-    video_url = fields.Char(string='Video URL')
-    image_url = fields.Char(string='Image URL')
-    file_url = fields.Char(string='File URL')
-    blockchain_hash = fields.Char(string='Blockchain Hash')  # Puede ser nulo
-    date = fields.Date(string='Date', default=fields.Date.context_today)
-    sent = fields.Datetime(string='Sent')
+    title = fields.Char(string="Title", required=True, tracking=True)
+    message = fields.Text(string="Message", required=True, tracking=True)
+    date = fields.Date(string="Date", required=True, tracking=True)
+    type = fields.Selection(
+        [
+            ("announcement", "Announcement"),
+            ("notice", "Notice"),
+        ],
+        string="Type",
+        required=True,
+        tracking=True,
+    )
+    sent = fields.Datetime(string="Sent", readonly=True, default=fields.Datetime.now)
+    emisor_id = fields.Many2one(
+        "res.users",
+        string="Emisor",
+        default=lambda self: self.env.user,
+        required=True,
+        tracking=True,
+    )
+    binary_file_name = fields.Char("Binary File Name")
+    binary_fields = fields.Many2many("ir.attachment", string="Multi Files Upload")
+
+    # Relación Many2many con los usuarios, solo para indicar a quién se enviará el anuncio
+    user_ids = fields.Many2many(
+        'res.users',  # Relación con el modelo de usuarios
+        'announcement_user_rel',  # Nombre de la tabla intermedia
+        'announcement_id',  # Campo en la tabla intermedia
+        'user_id',  # Campo en la tabla intermedia
+        string='Users'  # Nombre del campo para mostrarlo en la vista
+    )
     
-    # Relaciones
-    theme_id = fields.Many2one('school.theme', string='Theme')
-    type_id = fields.Many2one('school.announcement_type', string='Announcement Type', required=True)
-    emisor_id = fields.Many2one('res.users', string='Emisor', default=lambda self: self.env.user, required=True)
-    receiver_ids = fields.Many2many('school.student', 'announcement_user_rel', 'announcement_id', 'student_id', string='Receivers')
 
-# class AnnouncementUser(models.Model):
-#     _name = 'school.announcement_user'
-#     _description = 'Announcement User'
-
-#     announcement_id = fields.Many2one('school.announcement', string='Announcement', required=True)
-#     student_id = fields.Many2one('school.student', string='Student', required=True)
-#     state = fields.Selection([('received', 'Received'), ('read', 'Read')], string='State')
-#     received = fields.Datetime(string='Received')
-#     read = fields.Datetime(string='Read')
+    @api.model
+    def create(self, vals):
+        vals['sent'] = fields.Datetime.now()  # Establece la fecha y hora de envío
+        return super(Announcement, self).create(vals)

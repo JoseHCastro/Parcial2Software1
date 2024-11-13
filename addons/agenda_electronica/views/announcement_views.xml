@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <!-- Vista de árbol para Announcement -->
+        <record id="view_announcement_tree" model="ir.ui.view">
+            <field name="name">school.announcement.list</field>
+            <field name="model">school.announcement</field>
+            <field name="arch" type="xml">
+                <list string="Announcements" decoration-info="not sent">
+                    <field name="title" />
+                    <field name="date" />
+                    <field name="sent" />
+                    <field name="type" />
+                    <field name="emisor_id" />
+                    <field name="user_ids" widget="many2many_tags" options="{'no_create': True}" string="Users"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para Announcement -->
+        <record id="view_announcement_form" model="ir.ui.view">
+            <field name="name">school.announcement.form</field>
+            <field name="model">school.announcement</field>
+            <field name="arch" type="xml">
+                <form string="Announcement">
+                    <group>
+                        <field name="title" />
+                        <field name="date" />
+                        <field name="type" />
+                        <field name="emisor_id" />
+                        <field name="binary_fields" widget="many2many_binary" />
+                        <field name="binary_file_name" invisible="1" />
+                        <field name="sent" readonly="1" />
+                        <field name="message" />
+                        <!-- Selección de usuarios a quienes se enviará el anuncio -->
+                        <field name="user_ids" widget="many2many_tags" options="{'no_create': True}" string="Users"/>
+                        <!-- Nuevo campo test -->
+                        
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menú -->
+        <record id="action_announcement" model="ir.actions.act_window">
+            <field name="name">Announcements</field>
+            <field name="res_model">school.announcement</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <!-- Grupo para Profesor -->
+    <record id="group_professor" model="res.groups">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="base.module_category_user_type"/>
+    </record>
+
+    <!-- Grupo para Estudiante -->
+    <record id="group_student" model="res.groups">
+        <field name="name">Student</field>
+        <field name="category_id" ref="base.module_category_user_type"/>
+    </record>
+
+    <!-- Grupo para Administrador -->
+    <record id="group_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="base.module_category_user_type"/>
+    </record>
+
+    <!-- Grupo para Padre -->
+    <record id="group_parent" model="res.groups">
+        <field name="name">Parent</field>
+        <field name="category_id" ref="base.module_category_user_type"/>
+    </record>
+</odoo>
