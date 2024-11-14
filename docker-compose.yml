@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: odoo:18.0
+    build: .  # Esto hace que Docker use el Dockerfile en este directorio
     depends_on:
       - db
     ports:
