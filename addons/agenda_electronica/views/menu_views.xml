@@ -11,8 +11,8 @@
         <menuitem id="menu_school_classroom" name="Classrooms" parent="menu_school_root" action="action_classroom"/>
         <menuitem id="menu_school_subject" name="Subjects" parent="menu_school_root" action="action_subject"/>
         <menuitem id="menu_school_schedule" name="Schedules" parent="menu_school_root" action="action_schedule"/>
-        <menuitem id="menu_school_schedule" name="Schedules" parent="menu_school_root" action="action_schedule"/>
-        <!-- <menuitem id="menu_school_announcement" name="Anouncements" parent="menu_school_root" action="action_announcement"/>
-        <menuitem id="menu_school_announcement_type" name="Announcement Types" parent="menu_school_root" action="action_announcement_type"/> -->
+        <menuitem id="menu_school_announcement" name="Anouncements" parent="menu_school_root" action="action_announcement"/>
+        
+        
     </data>
 </odoo>
